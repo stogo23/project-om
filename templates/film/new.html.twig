@@ -3,9 +3,15 @@
 {% block title %}New Film{% endblock %}
 
 {% block body %}
-    <h1>Cree un nouveau film</h1>
+    <div class="container mt-5">
+        <h1 class="mb-4">Créer un nouveau film</h1>
 
-    {{ include('film/_form.html.twig') }}
+        <div class="card">
+            <div class="card-body">
+                {{ include('film/_form.html.twig') }}
+            </div>
+        </div>
 
-    <a href="{{ path('app_film_index') }}">retour a la liste</a>
+        <a href="{{ path('app_film_index') }}" class="btn btn-secondary mt-3">Retour à la liste</a>
+    </div>
 {% endblock %}
