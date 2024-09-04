@@ -3,43 +3,53 @@
 {% block title %}Ajout de film{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
-        <h1 class="mb-4">Film</h1>
 
-        <table class="table table-dark table-striped">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Titre</th>
-                    <th>Description</th>
-                    <th>Annee</th>
-                    <th>Genre</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-            {% for film in films %}
-                <tr>
-                    <td>{{ film.id }}</td>
-                    <td>{{ film.Titre }}</td>
-                    <td>{{ film.Description }}</td>
-                    <td>{{ film.Annee }}</td>
-                    <td>{{ film.Genre }}</td>
-                    <td><img src="{{ film.Image }}" alt="{{ film.Titre }}" class="img-thumbnail" width="100"></td>
-                    <td>
-                        <a href="{{ path('app_film_show', {'id': film.id}) }}" class="btn btn-primary btn-sm">Show</a>
-                        <a href="{{ path('app_film_edit', {'id': film.id}) }}" class="btn btn-secondary btn-sm">Edit</a>
-                    </td>
-                </tr>
-            {% else %}
-                <tr>
-                    <td colspan="7">No records found</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
+    <div class="bg-gradient-to-r from-black via-gray-800 to-gray-500 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto mt-5 p-5 bg-white shadow-lg rounded-lg">
 
-        <a href="{{ path('app_film_new') }}" class="btn btn-success">Nouveau film</a>
+              <div class="text-center mb-4">
+                <a href="{{ path('app_film_search') }}" class="bg-blue-500 text-white px-4 py-2 rounded">Rechercher des films</a>
+            </div>
+
+            <h1 class="text-2xl font-bold mb-4 text-center">Film</h1>
+
+            <table class="min-w-full bg-white">
+                <thead>
+                    <tr>
+                        <th class="py-2">Id</th>
+                        <th class="py-2">Titre</th>
+                        <th class="py-2">Description</th>
+                        <th class="py-2">Année</th>
+                        <th class="py-2">Genre</th>
+                        <th class="py-2">Image</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                {% for film in films %}
+                    <tr class="border-b">
+                        <td class="py-2">{{ film.id }}</td>
+                        <td class="py-2">{{ film.Titre }}</td>
+                        <td class="py-2">{{ film.Description }}</td>
+                        <td class="py-2">{{ film.Annee }}</td>
+                        <td class="py-2">{{ film.Genre }}</td>
+                        <td class="py-2"><img src="{{ film.Image }}" alt="{{ film.Titre }}" class="img-thumbnail w-24"></td>
+                        <td class="py-2">
+                            {# <a href="{{ path('app_film_show', {'id': film.id}) }}" class="bg-blue-500 text-white px-3 py-1 rounded"></a> #}
+                            <a href="{{ path('app_film_edit', {'id': film.id}) }}" class="bg-yellow-500 text-white px-3 py-1 rounded">Modifier</a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7" class="text-center py-4">No records found</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <div class="text-center mt-4">
+                <a href="{{ path('app_film_new') }}" class="bg-green-500 text-white px-4 py-2 rounded">Ajouter film</a>
+            </div>
+        </div>
     </div>
 {% endblock %}

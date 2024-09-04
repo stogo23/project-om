@@ -3,48 +3,52 @@
 {% block title %}Recherche de films{% endblock %}
 
 {% block body %}
-    <h1>Recherche de films</h1>
+    <div class="bg-gradient-to-r from-black via-gray-800 to-gray-500 min-h-screen flex items-center justify-center">
+        <div class="container mx-auto mt-5 p-5 bg-white shadow-lg rounded-lg">
+            <h1 class="text-2xl font-bold mb-4 text-center">Recherche de films</h1>
 
-    <form method="get" action="{{ path('app_film_search') }}">
-        <input type="text" name="title" placeholder="Entrez le titre du film" value="{{ title }}">
-        <button type="submit">Rechercher</button>
-    </form>
+            <form method="get" action="{{ path('app_film_search') }}" class="text-center">
+                <input type="text" name="title" placeholder="Entrez le titre du film" value="{{ title }}" class="border rounded px-3 py-2">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Rechercher</button>
+            </form>
 
-    {% if movie != null %}
-        <h2>Résultats de la recherche</h2>
-        <table class="table">
-            <tbody>
-                <tr>
-                    <th>Titre</th>
-                    <td>{{ movie.Title }}</td>
-                </tr>
-                <tr>
-                    <th>Année</th>
-                    <td>{{ movie.Year }}</td>
-                </tr>
-                <tr>
-                    <th>Genre</th>
-                    <td>{{ movie.Genre }}</td>
-                </tr>
-                <tr>
-                    <th>Réalisateur</th>
-                    <td>{{ movie.Director }}</td>
-                </tr>
-                <tr>
-                    <th>Acteurs</th>
-                    <td>{{ movie.Actors }}</td>
-                </tr>
-                <tr>
-                    <th>Résumé</th>
-                    <td>{{ movie.Plot }}</td>
-                </tr>
-                <tr>
-                    <th>Affiche</th>
-                    <td><img src="{{ movie.Poster }}" alt="Affiche du film"></td>
-                </tr>
-            </tbody>
-        </table>
-    {% else %}
-        <p>Aucun film trouvé pour le titre "{{ title }}".</p>
-    {% endif %}
+            {% if movie != null %}
+                <h2 class="text-xl font-bold mt-5">Résultats de la recherche</h2>
+                <table class="min-w-full bg-white mt-3">
+                    <tbody>
+                        <tr>
+                            <th class="py-2">Titre</th>
+                            <td class="py-2">{{ movie.Title }}</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2">Année</th>
+                            <td class="py-2">{{ movie.Year }}</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2">Genre</th>
+                            <td class="py-2">{{ movie.Genre }}</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2">Réalisateur</th>
+                            <td class="py-2">{{ movie.Director }}</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2">Acteurs</th>
+                            <td class="py-2">{{ movie.Actors }}</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2">Résumé</th>
+                            <td class="py-2">{{ movie.Plot }}</td>
+                        </tr>
+                        <tr>
+                            <th class="py-2">Affiche</th>
+                            <td class="py-2"><img src="{{ movie.Poster }}" alt="Affiche du film" class="img-thumbnail w-24"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            {% else %}
+                <p class="text-center mt-4">Aucun film trouvé pour le titre "{{ title }}".</p>
+            {% endif %}
+        </div>
+    </div>
 {% endblock %}
