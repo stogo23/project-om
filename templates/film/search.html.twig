@@ -10,7 +10,7 @@
         <button type="submit">Rechercher</button>
     </form>
 
-    {% if movie %}
+    {% if movie != null %}
         <h2>Résultats de la recherche</h2>
         <table class="table">
             <tbody>
@@ -44,7 +44,7 @@
                 </tr>
             </tbody>
         </table>
-    {% elseif title %}
+    {% else %}
         <p>Aucun film trouvé pour le titre "{{ title }}".</p>
     {% endif %}
 {% endblock %}

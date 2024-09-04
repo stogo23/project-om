@@ -98,16 +98,31 @@ class FilmController extends AbstractController
     #[Route('/search', name: 'app_film_search', methods: ['GET', 'POST'])]
     public function search(Request $request): Response
     {
+      try {
         $title = $request->query->get('title');
         $movieData = null;
 
         if ($title) {
             $movieData = $this->omdbApiService->fetchMovieData($title);
+        }else{
+            
+            $movieData = null;
+            return $this->render('film/search.html.twig', [
+                'movie' => $movieData,
+                'title' => $title,
+            ]);
         }
 
         return $this->render('film/search.html.twig', [
             'movie' => $movieData,
             'title' => $title,
         ]);
+      } catch (\Throwable $th) {
+        $movieData = null;
+        return $this->render('film/search.html.twig', [
+            'movie' => $movieData,
+            'title' => $title,
+        ]);
+      }
     }
 }
