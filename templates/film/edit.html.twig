@@ -1,22 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Film{% endblock %}
+{% block title %}Créer un nouveau film{% endblock %}
 
 {% block body %}
-    <div class="bg-gradient-to-r from-black via-gray-800 to-gray-500 min-h-screen flex items-center justify-center">
-        <div class="container mx-auto mt-5 p-5 bg-white shadow-lg rounded-lg">
-            <h1 class="text-2xl font-bold mb-4 text-center">Créer un nouveau film</h1>
+    <div class="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 min-h-screen flex items-center justify-center py-8">
+        <div class="container mx-auto p-4 bg-white shadow-md rounded-lg max-w-lg">
+            <h1 class="text-3xl font-semibold mb-6 text-gray-800 text-center">Créer un nouveau film</h1>
 
-            <div class="card bg-white p-5 rounded-lg shadow-md">
-                <div class="card-body">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="space-y-4">
                     {{ include('film/_form.html.twig') }}
                 </div>
             </div>
 
-            <div class="text-center mt-4">
-                <a href="{{ path('app_film_index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Retour à la liste</a>
+            <div class="text-center mt-6">
+                <a href="{{ path('app_film_index') }}" class="bg-gray-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-gray-700 transition-colors duration-300">Retour à la liste</a>
             </div>
         </div>
     </div>
 {% endblock %}
-

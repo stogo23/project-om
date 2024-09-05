@@ -3,51 +3,90 @@
 {% block title %}Recherche de films{% endblock %}
 
 {% block body %}
-    <div class="bg-gradient-to-r from-black via-gray-800 to-gray-500 min-h-screen flex items-center justify-center">
-        <div class="container mx-auto mt-5 p-5 bg-white shadow-lg rounded-lg">
-            <h1 class="text-2xl font-bold mb-4 text-center">Recherche de films</h1>
+    <div class="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 min-h-screen flex items-center justify-center py-8">
+        <div class="container mx-auto p-6 bg-white shadow-lg rounded-lg max-w-3xl">
+            <h1 class="text-3xl font-semibold mb-6 text-gray-800 text-center">Recherche de films</h1>
 
-            <form method="get" action="{{ path('app_film_search') }}" class="text-center">
-                <input type="text" name="title" placeholder="Entrez le titre du film" value="{{ title }}" class="border rounded px-3 py-2">
-                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Rechercher</button>
+            <form method="get" action="{{ path('app_film_search') }}" class="text-center mb-6">
+                <input type="text" name="title" placeholder="Entrez le titre du film" value="{{ title }}" class="border rounded px-4 py-2 w-80">
+                <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-blue-700 transition-colors duration-300">Rechercher</button>
             </form>
 
             {% if movie != null %}
-                <h2 class="text-xl font-bold mt-5">Résultats de la recherche</h2>
-                <table class="min-w-full bg-white mt-3">
-                    <tbody>
-                        <tr>
-                            <th class="py-2">Titre</th>
-                            <td class="py-2">{{ movie.Title }}</td>
-                        </tr>
-                        <tr>
-                            <th class="py-2">Année</th>
-                            <td class="py-2">{{ movie.Year }}</td>
-                        </tr>
-                        <tr>
-                            <th class="py-2">Genre</th>
-                            <td class="py-2">{{ movie.Genre }}</td>
-                        </tr>
-                        <tr>
-                            <th class="py-2">Réalisateur</th>
-                            <td class="py-2">{{ movie.Director }}</td>
-                        </tr>
-                        <tr>
-                            <th class="py-2">Acteurs</th>
-                            <td class="py-2">{{ movie.Actors }}</td>
-                        </tr>
-                        <tr>
-                            <th class="py-2">Résumé</th>
-                            <td class="py-2">{{ movie.Plot }}</td>
-                        </tr>
-                        <tr>
-                            <th class="py-2">Affiche</th>
-                            <td class="py-2"><img src="{{ movie.Poster }}" alt="Affiche du film" class="img-thumbnail w-24"></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <h2 class="text-2xl font-semibold mb-4">Résultats de la recherche</h2>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <table class="w-full bg-gray-50 border border-gray-200 rounded-lg">
+                        <tbody>
+                            <tr class="border-b border-gray-200">
+                                <th class="py-2 px-4 text-left font-semibold text-gray-600">Titre</th>
+                                <td class="py-2 px-4">{{ movie.Title }}</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <th class="py-2 px-4 text-left font-semibold text-gray-600">Année</th>
+                                <td class="py-2 px-4">{{ movie.Year }}</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <th class="py-2 px-4 text-left font-semibold text-gray-600">Genre</th>
+                                <td class="py-2 px-4">{{ movie.Genre }}</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <th class="py-2 px-4 text-left font-semibold text-gray-600">Réalisateur</th>
+                                <td class="py-2 px-4">{{ movie.Director }}</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <th class="py-2 px-4 text-left font-semibold text-gray-600">Acteurs</th>
+                                <td class="py-2 px-4">{{ movie.Actors }}</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <th class="py-2 px-4 text-left font-semibold text-gray-600">Résumé</th>
+                                <td class="py-2 px-4">{{ movie.Plot }}</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <th class="py-2 px-4 text-left font-semibold text-gray-600">Affiche</th>
+                                <td class="py-2 px-4"><img src="{{ movie.Poster }}" alt="Affiche du film" class="w-32 h-48 object-cover rounded-md"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="mt-6 ">
+                        {{ form_start(form) }}
+                        <div class="space-y-4">
+                            <div class="form-group hidden">
+                                {{ form_label(form.Titre, 'Titre', {'label_attr': {'class': 'font-semibold text-gray-700'}}) }}
+                                {{ form_widget(form.Titre, {'attr': {'class': 'form-control border rounded-lg px-3 py-2', 'value': movie.Title}}) }}
+                                {{ form_errors(form.Titre) }}
+                            </div>
+
+                            <div class="form-group">
+                                {{ form_label(form.Description, 'Description', {'label_attr': {'class': 'font-semibold text-gray-700'}}) }}
+                                {{ form_widget(form.Description, {'attr': {'class': 'form-control border rounded-lg px-3 py-2', 'value': movie.Plot}}) }}
+                                {{ form_errors(form.Description) }}
+                            </div>
+
+                            <div class="form-group hidden">
+                                {{ form_label(form.Annee, 'Année', {'label_attr': {'class': 'font-semibold text-gray-700'}}) }}
+                                {{ form_widget(form.Annee, {'attr': {'class': 'form-control border rounded-lg px-3 py-2', 'value': movie.Year}}) }}
+                                {{ form_errors(form.Annee) }}
+                            </div>
+
+                            <div class="form-group hidden">
+                                {{ form_label(form.Genre, 'Genre', {'label_attr': {'class': 'font-semibold text-gray-700'}}) }}
+                                {{ form_widget(form.Genre, {'attr': {'class': 'form-control border rounded-lg px-3 py-2', 'value': movie.Genre}}) }}
+                                {{ form_errors(form.Genre) }}
+                            </div>
+
+                            <div class="form-group hidden">
+                                {{ form_label(form.Image, 'Image', {'label_attr': {'class': 'font-semibold text-gray-700'}}) }}
+                                {{ form_widget(form.Image, {'attr': {'class': 'form-control border rounded-lg px-3 py-2', 'value': movie.Poster}}) }}
+                                {{ form_errors(form.Image) }}
+                            </div>
+                        </div>
+                        <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded-lg shadow-md hover:bg-green-700 transition-colors duration-300 mt-4">Enregistrer</button>
+                        {{ form_end(form) }}
+                    </div>
+                </div>
             {% else %}
-                <p class="text-center mt-4">Aucun film trouvé pour le titre "{{ title }}".</p>
+                <p class="text-center mt-4 text-gray-600">Aucun film trouvé pour le titre "{{ title }}".</p>
             {% endif %}
         </div>
     </div>
