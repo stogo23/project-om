@@ -20,7 +20,7 @@ class FilmType extends AbstractType
             ->add('Image')
             ->add('delete', SubmitType::class, [
                 'label' => 'Delete',
-                'attr' => ['class' => 'btn-danger'],
+                'attr' => ['class' => 'bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg'],
             ])
         ;
     }

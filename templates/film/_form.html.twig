@@ -43,13 +43,13 @@
         {{ form_errors(form.Image, {'attr': {'class': 'text-red-600 text-sm mt-1'}}) }}
     </div>
 
-    <div class="flex justify-end space-x-4">
+    <div class="flex justify-end">
         <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
-            {{ button_label|default('enregistrer') }}
+            {{ button_label|default('Enregistrer') }}
         </button>
-        <button type="submit" name="delete" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg">
-            Delete
-        </button>
+        {# <button type="submit" name="delete" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg">
+            {{ button_label|default('Delete') }}
+        </button> #}
     </div>
 
     {{ form_end(form) }}

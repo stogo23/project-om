@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Service\OmdbApiService;
 
+
 class FilmController extends AbstractController
 {
     #[Route('/film', name: 'app_film_index', methods: ['GET'])]
@@ -22,7 +23,7 @@ class FilmController extends AbstractController
             'films' => $filmRepository->findAll(),
         ]);
     }
-    #[Route('/', name: 'app_film_inde', methods: ['GET'])]
+    #[Route('/', name: 'app_film_index', methods: ['GET'])]
     public function inde(FilmRepository $filmRepository): Response
     {
         return $this->render('film/index.html.twig', [
@@ -160,10 +161,5 @@ class FilmController extends AbstractController
        }
     }
 
-  
-
     
-
-
 }
-    

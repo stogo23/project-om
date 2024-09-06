@@ -28,6 +28,37 @@
         </div>
     </header>
     
-    {% block body %}{% endblock %}
-</body>
-</html>
+{% block body %}{% endblock %}
+
+   
+    <footer class="bg-gray-800 text-white py-8 mt-8">
+    <div class="container mx-auto text-center">
+        <p>&copy; {{ "now"|date("Y") }} MoulaCiné. Tous droits réservés.</p>
+        
+        <!-- Icônes de réseaux sociaux -->
+        <div class="flex justify-center mt-4 space-x-6">
+            <a href="https://instagram.com/moulaclub" target="_blank">
+                <img src="{{ asset('icons/instagram.svg') }}" alt="Instagram" class="w-6 h-6 hover:opacity-75 transition-opacity duration-300">
+            </a>
+            <a href="https://linkedin.com/company/moulaclub" target="_blank">
+                <img src="{{ asset('icons/linkedin.svg') }}" alt="LinkedIn" class="w-6 h-6 hover:opacity-75 transition-opacity duration-300">
+            </a>
+            <a href="https://facebook.com/moulaclub" target="_blank">
+                <img src="{{ asset('icons/facebook.svg') }}" alt="Facebook" class="w-6 h-6 hover:opacity-75 transition-opacity duration-300">
+            </a>
+            <a href="https://tiktok.com/@moulaclub" target="_blank">
+                <img src="{{ asset('public/icons/tiktok-brands-solid.svg') }}" alt="TikTok" class="w-6 h-6 hover:opacity-75 transition-opacity duration-300">
+            </a>
+            <a href="https://twitter.com/moulaclub" target="_blank">
+                <img src="{{ asset('public/icons/twitter-brands-solid.svg') }}" alt="Twitter" class="w-6 h-6 hover:opacity-75 transition-opacity duration-300">
+            </a>
+        </div>
+        
+        <!-- Informations fictives -->
+        <div class="mt-4">
+            <p class="text-gray-400 text-sm">123 Rue de l'Industrie, 75001 Paris, France</p>
+            <p class="text-gray-400 text-sm">Téléphone : +33 1 23 45 67 89</p>
+            <p class="text-gray-400 text-sm">Email : contact@moulaclub.com</p>
+        </div>
+    </div>
+</footer>
