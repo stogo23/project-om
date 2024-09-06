@@ -2,3 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+html, body {
+    @apply overflow-hidden; 
+    overflow-y: scroll; 
+}
+
+
+::-webkit-scrollbar {
+    display: none; 
+}
+
+
+body {
+    scrollbar-width: none; 
+}
