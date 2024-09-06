@@ -73,6 +73,13 @@ class FilmController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($form->get('delete')->isClicked()) {
+                $entityManager->remove($film);
+                $entityManager->flush();
+    
+                    return $this->redirectToRoute('app_film_index');
+            }
+            $entityManager->persist($film);
             $entityManager->flush();
 
             return $this->redirectToRoute('app_film_index', [], Response::HTTP_SEE_OTHER);
@@ -114,7 +121,8 @@ class FilmController extends AbstractController
     #[Route('/search', name: 'app_film_search', methods: ['GET', 'POST'])]
     public function search(Request $request, EntityManagerInterface $entityManager): Response
     {
-        $title = $request->query->get('title');
+       try {
+         $title = $request->query->get('title');
         $movieData = null;
     
         if ($title) {
@@ -140,6 +148,15 @@ class FilmController extends AbstractController
             'title' => $title,
             'form' => $form->createView(), // Passer le formulaire à la vue
         ]);
+       } catch (\Throwable $th) {
+        $movieData= null;
+        $title = null; 
+      return $this->render('film/search.html.twig', [
+            'movie' => $movieData,
+            'title' => $title,
+            'form' => $form->createView(), // Passer le formulaire à la vue
+        ]);
+       }
     }
 
   

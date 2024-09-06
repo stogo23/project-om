@@ -6,6 +6,7 @@ use App\Entity\Film;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class FilmType extends AbstractType
 {
@@ -17,6 +18,10 @@ class FilmType extends AbstractType
             ->add('Annee')
             ->add('Genre')
             ->add('Image')
+            ->add('delete', SubmitType::class, [
+                'label' => 'Delete',
+                'attr' => ['class' => 'btn-danger'],
+            ])
         ;
     }
 
