@@ -1,4 +1,4 @@
-MoulaCiné
+
 MoulaCiné est une application de panel d’administration pour la recherche de films. Elle permet d’ajouter, de modifier, de supprimer et de rechercher des films via l’API OMDb.
 
 Prérequis
