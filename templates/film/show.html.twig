@@ -68,7 +68,7 @@
             </table>
 
             <div class="text-center mt-4">
-                <a href="{{ path('app_film_index') }}" class="bg-gray-500 text-white px-4 py-2 rounded">Retour à la liste</a>
+                <a href="{{ path('app_film_index') }}" class="bg-bleu-500 text-white px-4 py-2 rounded">Retour à la liste</a>
                 {% if film is defined %}
                     <a href="{{ path('app_film_edit', {'id': film.id}) }}" class="bg-blue-500 text-white px-4 py-2 rounded">Modifier</a>
                     {{ include('film/_delete_form.html.twig') }}

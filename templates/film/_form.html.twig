@@ -1,4 +1,60 @@
-{{ form_start(form) }}
+ {# {{ form_start(form) }}
 {{ form_widget(form) }}
 <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+{{ form_end(form) }}  #}
+
+
+{# new.html.twig #}
+
+{# new.html.twig #}
+
+<div class="container mx-auto max-w-sm p-8 bg-transparent shadow-lg rounded-lg mt-10">
+    <h2 class="text-2xl font-semibold mb-6 text-gray-800">Ajouter un Film</h2>
+
+    {{ form_start(form, {'attr': {'class': 'space-y-6'}}) }}
+
+    <div class="flex flex-col">
+        {{ form_label(form.Titre, 'Titre', {'label_attr': {'class': 'mb-1 text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(form.Titre, {'attr': {'class': 'border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-500'}}) }}
+        {{ form_errors(form.Titre, {'attr': {'class': 'text-red-600 text-sm mt-1'}}) }}
+    </div>
+
+    <div class="flex flex-col">
+        {{ form_label(form.Description, 'Description', {'label_attr': {'class': 'mb-1 text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(form.Description, {'attr': {'class': 'border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-500 resize-none h-24'}}) }}
+        {{ form_errors(form.Description, {'attr': {'class': 'text-red-600 text-sm mt-1'}}) }}
+    </div>
+
+    <div class="flex flex-col">
+        {{ form_label(form.Annee, 'Année', {'label_attr': {'class': 'mb-1 text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(form.Annee, {'attr': {'class': 'border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-500'}}) }}
+        {{ form_errors(form.Annee, {'attr': {'class': 'text-red-600 text-sm mt-1'}}) }}
+    </div>
+
+    <div class="flex flex-col">
+        {{ form_label(form.Genre, 'Genre', {'label_attr': {'class': 'mb-1 text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(form.Genre, {'attr': {'class': 'border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-500'}}) }}
+        {{ form_errors(form.Genre, {'attr': {'class': 'text-red-600 text-sm mt-1'}}) }}
+    </div>
+
+    <div class="flex flex-col">
+        {{ form_label(form.Image, 'Image', {'label_attr': {'class': 'mb-1 text-sm font-medium text-gray-700'}}) }}
+        {{ form_widget(form.Image, {'attr': {'class': 'border border-gray-300 p-2 rounded-lg focus:ring-2 focus:ring-blue-500'}}) }}
+        {{ form_errors(form.Image, {'attr': {'class': 'text-red-600 text-sm mt-1'}}) }}
+    </div>
+
+    <div class="flex justify-end space-x-4">
+        <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg">
+            {{ button_label|default('enregistrer') }}
+        </button>
+        <button type="submit" name="delete" class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-lg">
+            Delete
+        </button>
+    </div>
+
+    {{ form_end(form) }}
+</div>
+
+
+
+

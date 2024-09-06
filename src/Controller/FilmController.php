@@ -151,7 +151,8 @@ class FilmController extends AbstractController
        } catch (\Throwable $th) {
         $movieData= null;
         $title = null; 
-      return $this->render('film/search.html.twig', [
+        // en cas d'erreur redirection ver la page error
+      return $this->render('film/error.html.twig', [
             'movie' => $movieData,
             'title' => $title,
             'form' => $form->createView(), // Passer le formulaire à la vue
