@@ -52,7 +52,7 @@ Le sites assez simple d'utilisation vous pouvez naviguer facilement dessus.
 Explications supplémentaires
 J’ai réalisé cette application avec Symfony comme il me l’était demandé. J’ai utilisé les commandes make:crud et make:entity pour générer les contrôleurs de mon application. Ces commandes m’ont permis de générer automatiquement le squelette de mon application, facilitant ainsi l’intégration de ma base de données via Doctrine.
 
-Pour le style, j’ai opté pour Tailwind CSS car je peux directement changer le style sur mes templates Twig, ce qui m’a permis d’apporter des changements rapides sur le design de la page. De plus, pour le côté responsive, il est plus facile pour moi de gérer la responsivité. J’ai essayé d’aller au plus simple.
+Pour le style, j’ai opté pour Tailwind CSS car je peux directement changer le style sur mes templates Twig, ce qui m’a permis d’apporter des changements rapides sur le design de la page. , j’ai essayé d’aller au plus simple.
 
 En cas d’erreur, commencez par analyser le message d’erreur. Symfony renvoie directement les erreurs sur votre écran. Il peut s’agir d’une erreur de configuration ou de dépendance. Assurez-vous que vos fichiers sont corrects, notamment les fichiers comme config/packages/doctrine.yaml et config/packages/twig.yaml. Ces fichiers se trouvent dans l’arborescence du projet. N’hésitez pas à utiliser la documentation Symfony pour vous aider.
 
