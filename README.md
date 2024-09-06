@@ -5,8 +5,7 @@ Prérequis
 Symfony 7 doit être installé sur votre machine.
 MAMP doit être installé pour gérer la base de données.
 Installation
-Clonez le dépôt de votre projet sur votre machine locale :
-git clone https://votre-repo-git/moulacine.git
+
 
 Accédez au répertoire du projet :
 cd project-om
